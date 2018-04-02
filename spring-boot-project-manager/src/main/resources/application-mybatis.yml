@@ -1,0 +1,31 @@
+spring:
+  druid:
+    default:
+      url: jdbc:mysql://localhost:3306/springbootdb?useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: root
+      driver-class-name: com.mysql.jdbc.Driver
+      validation-query: SELECT 1                        # 验证数据库连接的有效性
+      remove-abandoned-timeout-millis: 1800             # 关闭超过30分钟的空闲连接，1800秒，也就是30分钟
+      log-abandoned: true
+    stat:
+      enable: true                                      # 启用druid监控控制台
+      login-username: druid
+      login-password: druid
+  mybatis:
+    configuration:
+      aggressive-lazy-loading: false                    # 按需加载。当开启时，任何方法的调用都会加载该对象的所有属性。否则，每个属性会按需加载
+      lazy-loading-enabled: true                        # 延迟加载的全局开关。当开启时，所有关联对象都会延迟加载。 特定关联关系中可通过设置fetchType属性来覆盖该项的开关状态。
+      map-underscore-to-camel-case: true                # 是否开启自动驼峰命名规则（camel case）映射，即从经典数据库列名 A_COLUMN 到经典 Java 属性名 aColumn 的类似映射。
+    nodes:
+      colg:                                             # 该数据源的名字，可以配置多个数据源
+        mapper: MYSQL                                   # Mybatis 通用mapper接口集合。mysqldb时使用使用 MYSQL,SqlServer 时使用MSSQL,其它db类型时使用DEFAULT， 默认值是 DEFAULT
+        base-package: com.github.manager.dao            # Mapper.java 接口路径
+        mapper-package: classpath:mapper/*.xml          # Mapper.xml 文件位置
+        master:
+          url: ${spring.druid.default.url}
+          
+logging:
+  level:
+    root: info
+    ${spring.mybatis.nodes.colg.base-package}: debug
