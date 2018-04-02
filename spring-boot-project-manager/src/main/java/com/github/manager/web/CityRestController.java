@@ -14,22 +14,30 @@ import org.springframework.web.bind.annotation.RestController;
 import com.github.manager.entity.City;
 import com.github.manager.service.CityService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+
 /**
  * 城市 Controller 实现 Restful HTTP 服务
  *
  * @author colg
  */
+@Api(tags = "城市模块 API")
 @RestController
 public class CityRestController {
 
 	@Autowired
 	private CityService cityService;
 
+	@ApiOperation("查询城市")
+	@ApiParam("城市ID")
 	@GetMapping("/api/city/{id}")
 	public City findOneCity(@PathVariable("id") Integer id) {
 		return cityService.findCityById(id);
 	}
 
+	@ApiOperation("查询城市列表")
 	@GetMapping("/api/city")
 	public List<City> findAllCity() {
 		return cityService.findAllCity();

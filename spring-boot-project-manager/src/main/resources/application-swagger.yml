@@ -1,0 +1,16 @@
+spring:
+  swagger:
+    enabled: true
+    group:
+      public-api:
+        group-name: 01:public-api
+        title: Spring Boot Project API
+        description: 此项目所有暴露的接口
+        version: 1.0.0
+        license: 该文档仅限公司内部传用
+        license-url: '#'
+        base-package: com.github.manager.web
+        contact:
+          name: colg
+          email: 121529654@qq.com
+          url: null

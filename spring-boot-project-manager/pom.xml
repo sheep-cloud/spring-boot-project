@@ -18,6 +18,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<dao-spring-boot>1.0.6</dao-spring-boot>
+		<swagger2-spring-boot>1.0.4</swagger2-spring-boot>
 	</properties>
 
 	<dependencies>
@@ -43,6 +44,12 @@
 			<groupId>com.gitee.reger</groupId>
 			<artifactId>spring-boot-starter-dao</artifactId>
 			<version>${dao-spring-boot}</version>
+		</dependency>
+		<!-- Spring Boot swagger2 依赖 -->
+		<dependency>
+			<groupId>com.gitee.reger</groupId>
+			<artifactId>spring-boot-starter-swagger</artifactId>
+			<version>${swagger2-spring-boot}</version>
 		</dependency>
 		<!-- MySQL 连接驱动依赖 -->
 		<dependency>
