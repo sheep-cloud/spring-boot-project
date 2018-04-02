@@ -28,4 +28,4 @@ spring:
 logging:
   level:
     root: info
-    ${spring.mybatis.nodes.colg.base-package}: debug
+    com.github.manager.dao: debug

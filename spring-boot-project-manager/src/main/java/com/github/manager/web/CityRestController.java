@@ -1,7 +1,5 @@
 package com.github.manager.web;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +9,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.common.core.ResultInfo;
+import com.github.common.core.ResultUtil;
 import com.github.manager.entity.City;
 import com.github.manager.service.CityService;
 
@@ -33,14 +33,14 @@ public class CityRestController {
 	@ApiOperation("查询城市")
 	@ApiParam("城市ID")
 	@GetMapping("/api/city/{id}")
-	public City findOneCity(@PathVariable("id") Integer id) {
-		return cityService.findCityById(id);
+	public ResultInfo findOneCity(@PathVariable("id") Integer id) {
+		return ResultUtil.success(cityService.findCityById(id), 200, "操作成功");
 	}
 
 	@ApiOperation("查询城市列表")
 	@GetMapping("/api/city")
-	public List<City> findAllCity() {
-		return cityService.findAllCity();
+	public ResultInfo findAllCity() {
+		return ResultUtil.success(cityService.findAllCity(), 200, "操作成功");
 	}
 
 	@PostMapping("/api/city")
