@@ -1,5 +1,10 @@
 package com.github.common.core;
 
+/**
+ * 统一响应结果
+ *
+ * @author colg
+ */
 public class ResultInfo extends BaseEntity {
 
 	/** 失败 */
