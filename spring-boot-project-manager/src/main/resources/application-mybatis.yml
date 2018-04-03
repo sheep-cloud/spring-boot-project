@@ -22,7 +22,7 @@ spring:
         mapper: MYSQL                                   # Mybatis 通用mapper接口集合。mysqldb时使用使用 MYSQL,SqlServer 时使用MSSQL,其它db类型时使用DEFAULT， 默认值是 DEFAULT
         base-package: com.github.manager.dao            # Mapper.java 接口路径
         mapper-package: classpath:mapper/*.xml          # Mapper.xml 文件位置
-        master:
+        master:                                         # 主库配置，不可为空，参数默认继承spring.druid.default，可以写参数覆盖默认配置
           url: ${spring.druid.default.url}
           
 logging:

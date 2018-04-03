@@ -1,16 +1,16 @@
 spring:
   swagger:
-    enabled: true
+    enabled: true                                         # 是否启用swagger
     group:
-      public-api:
-        group-name: 01:public-api
-        title: Spring Boot Project API
-        description: 此项目所有暴露的接口
-        version: 1.0.0
-        license: 该文档仅限公司内部传用
-        license-url: '#'
+      public-api:                                         # 用户组api，可以配置多个组
+        group-name: 01:public-api                         # api组的名字，会在swagger-ui的api下拉列表中显示；组名前的序号，多个组可以排序；最好不要写中文
+        title: Spring Boot Project API                    # api组的标题，会在swagger-ui的标题处显示
+        description: 此项目所有暴露的接口                       # api组的描述，会在swagger-ui的描述中显示
+        version: 1.0.0                                    # api版本
+        license: 该文档仅限公司内部传用                          # 授权协议  
+        license-url: '#'                                  # 授权协议地址
         base-package: com.github.manager.web
-        contact:
+        contact:                                          # 文档联系人
           name: colg
           email: 121529654@qq.com
           url: null
